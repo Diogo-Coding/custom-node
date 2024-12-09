@@ -18,6 +18,9 @@ const errorLogger = require('./middlewares/logs/errorLogger.js');
 // Auth
 const { authRoutes, authenticate, authorize } = require('./auth/index.js');
 
+// API
+const apiRoutes = require('./routes/apiRouter.js');
+
 // Expecific imports
 const { fgGreen, fgGray } = require('./utils/colors.js');
 const fs = require('fs');
@@ -67,6 +70,7 @@ app.use(requestLogger); // Middleware para registrar consultas HTTP
 
 // ----- Controllers -----
 app.use('/auth', authRoutes); // Montar las rutas de autenticación
+app.use('/api', apiRoutes); // Montar las rutas de la API
 // -----------------------
 
 app.use(errorLogger); // Middleware para manejar errores
